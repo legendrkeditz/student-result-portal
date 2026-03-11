@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>College Student Result System</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:linear-gradient(to right,#1d2671,#c33764);
+text-align:center;
+margin:0;
+}
+
+/* Header */
+
+.header{
+background:white;
+padding:15px;
+box-shadow:0px 2px 10px gray;
+}
+
+.logo{
+width:80px;
+}
+
+.college-name{
+font-size:24px;
+font-weight:bold;
+color:#1d2671;
+}
+
+/* Main Box */
+
+.container{
+width:420px;
+margin:auto;
+margin-top:60px;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0px 0px 15px black;
+}
+
+input{
+width:90%;
+padding:10px;
+margin:8px;
+border-radius:5px;
+border:1px solid gray;
+}
+
+button{
+padding:10px 20px;
+background:#1d2671;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#c33764;
+}
+
+.result{
+margin-top:20px;
+font-size:17px;
+text-align:left;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- College Header -->
+
+<div class="header">
+
+<img src="D:\web\logo.jpg" class="logo"><br>
+
+<div class="college-name">
+Modern College Of Arts,Science&Commerce GaneshKhind Pune-16
+</div>
+
+</div>
+
+<!-- Result Form -->
+
+<div class="container">
+
+<h2>Student Result Portal</h2>
+
+<input type="text" id="name" placeholder="Enter Name"><br>
+<input type="text" id="class" placeholder="Enter Class"><br>
+<input type="text" id="roll" placeholder="Enter Roll Number"><br>
+
+<button onclick="checkResult()">Check Result</button>
+
+<div class="result" id="resultBox"></div>
+
+</div>
+
+<script>
+
+var students = [
+
+{
+name:"Patil Abhijeet",
+class:"SYBCA",
+roll:"101",
+Hindi:65,
+English:10,
+Science:54,
+Maths:79,
+History:0,
+Geography:37,
+Total:245,
+Result:"Fail",
+Division:"Third"
+},
+
+{
+name:"Patil Sojwal",
+class:"SYBCA",
+roll:"102",
+Hindi:94,
+English:56,
+Science:64,
+Maths:98,
+History:0,
+Geography:50,
+Total:362,
+Result:"Pass",
+Division:"First"
+},
+
+{
+name:"Pandey Nilay",
+class:"SYBCA",
+roll:"103",
+Hindi:7,
+English:85,
+Science:97,
+Maths:78,
+History:60,
+Geography:25,
+Total:352,
+Result:"Fail",
+Division:"Second"
+},
+
+{
+name:"Khatal Rudraksh",
+class:"SYBCA",
+roll:"104",
+Hindi:88,
+English:46,
+Science:79,
+Maths:99,
+History:27,
+Geography:38,
+Total:377,
+Result:"Pass",
+Division:"First"
+},
+
+{
+name:"Patil Niraj",
+class:"FYBCA",
+roll:"105",
+Hindi:39,
+English:81,
+Science:32,
+Maths:33,
+History:16,
+Geography:54,
+Total:255,
+Result:"Pass",
+Division:"Third"
+}
+
+];
+
+function checkResult(){
+
+var name=document.getElementById("name").value;
+var className=document.getElementById("class").value;
+var roll=document.getElementById("roll").value;
+
+var found=false;
+
+for(var i=0;i<students.length;i++){
+
+if(students[i].roll==roll){
+
+var s=students[i];
+
+document.getElementById("resultBox").innerHTML=
+
+"<h3>Result Found</h3>"+
+"Name: "+s.name+"<br>"+
+"Class: "+s.class+"<br>"+
+"Roll No: "+s.roll+"<br><br>"+
+
+"Hindi: "+s.Hindi+"<br>"+
+"English: "+s.English+"<br>"+
+"Science: "+s.Science+"<br>"+
+"Maths: "+s.Maths+"<br>"+
+"History: "+s.History+"<br>"+
+"Geography: "+s.Geography+"<br><br>"+
+
+"<b>Total: "+s.Total+"</b><br>"+
+"<b>Result: "+s.Result+"</b><br>"+
+"<b>Division: "+s.Division+"</b>";
+
+found=true;
+
+}
+
+}
+
+if(!found){
+
+document.getElementById("resultBox").innerHTML="<h3 style='color:red'>Student Not Found</h3>";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
